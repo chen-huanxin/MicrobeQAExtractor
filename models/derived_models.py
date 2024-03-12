@@ -13,7 +13,6 @@ from transformers import AutoModelForQuestionAnswering
 from transformers.modeling_outputs import QuestionAnsweringModelOutput
 
 from .original_model import BertForQuestionAnswering
-from .distloss_model import BertForQuestionAnswering as BertForQuestionAnsweringDistloss
 
 
 @dataclass
@@ -149,10 +148,7 @@ class BioModel(nn.Module):
                 cache_dir=None,
             )
         else:
-            if args.use_distloss:
-                self.biobert = BertForQuestionAnsweringDistloss(config)
-            else:
-                self.biobert = BertForQuestionAnswering(config)
+            self.biobert = BertForQuestionAnswering(config)
             model_state = torch.load(model_name, map_location='cpu')
             model_state['bert.embeddings.position_ids'] = torch.arange(config.max_position_embeddings).expand((1, -1))
             self.biobert.load_state_dict(model_state)

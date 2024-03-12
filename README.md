@@ -1,4 +1,4 @@
-# Model & Code Running on MicrobeDB
+# MicrobeQAExtractor
 
 To train QA models on MicrobeDB with BioBERT-v1.1 or DeBERTa-v3, follow the description below.
 
@@ -63,4 +63,10 @@ Or just run the preject by shell script `run.sh`
 ./run.sh 2 10           # Use No.2 GPU, run 10 epoches
 ./run.sh 3 20 ../dataset # Use No.3 GPU, run 20 epoches, the dataset is in the directory ../dataset
 ```
-MODEL: choose from [BioModel, BioModelQkv, BioModelQkvBiDirection, BioModelQkvBiDirectionResidual]
+
+### Related work
+This code comes from related work: Interpretation knowledge extraction for genetic testing via question-answer model
+Authors are Wenjun Wang†, Huanxin Chen†, Hui Wang†, Lin Fang, Huan Wang, Yi Ding*, Yao Lu* and Qingyao Wu*
+
+### Contact
+For help or issues using BioBERT-PyTorch, please create an issue.
