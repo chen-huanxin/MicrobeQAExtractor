@@ -3,8 +3,8 @@
 To train QA models on MicrobeDB with BioBERT-v1.1 or DeBERTa-v3, follow the description below.
 
 ## Models
-`ktrapeznikov/biobert_v1.1_pubmed_squad_v2`
-`deepset/deberta-v3-base-squad2`
+- `ktrapeznikov/biobert_v1.1_pubmed_squad_v2`
+- `deepset/deberta-v3-base-squad2`
 
 ## Configuration
 
@@ -65,8 +65,13 @@ Or just run the preject by shell script `run.sh`
 ```
 
 ### Related work
-This code comes from related work: Interpretation knowledge extraction for genetic testing via question-answer model
-Authors are Wenjun Wang†, Huanxin Chen†, Hui Wang†, Lin Fang, Huan Wang, Yi Ding*, Yao Lu* and Qingyao Wu*
+This code comes from related work: **Interpretation knowledge extraction for genetic testing via question-answer model**
+
+Authors: Wenjun Wang†, Huanxin Chen†, Hui Wang†, Lin Fang, Huan Wang, Yi Ding*, Yao Lu* and Qingyao Wu*
+
+†: Equal contributor
+
+*: Correspondent author
 
 ### Contact
-For help or issues using BioBERT-PyTorch, please create an issue.
+For help or issues using MicrobeQAExtractor, please create an issue.
