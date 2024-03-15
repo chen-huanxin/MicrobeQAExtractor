@@ -34,7 +34,7 @@ Place `train-set.json` and `test-set.json` in dataset directory.
 ```bash
 python run.py \
     --model_type bert \
-    --model_name_or_path dmis-lab/biobert-base-cased-v1.1 \
+    --model_name_or_path deberta-v3-base-microbedb-v1 \
     --model_class BioModelQkv \  # choices: [BioModel, BioModelQkv, BioModelQkvBiDirection, BioModelQkvBiDirectionResidual]
     --data_dir ./dataset \
     --per_gpu_train_batch_size 12 \
