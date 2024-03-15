@@ -1,10 +1,9 @@
 # MicrobeQAExtractor
 
-To train QA models on MicrobeDB with BioBERT-v1.1 or DeBERTa-v3, follow the description below.
+This repository provides the code for pathogenic microorganism knowledge extraction and the trained model weights, along with an illustrative test sample.
 
 ## Models
-- `ktrapeznikov/biobert_v1.1_pubmed_squad_v2`
-- `deepset/deberta-v3-base-squad2`
+- [`deberta-v3-base-microbedb-v1`](https://drive.google.com/drive/folders/1t8Q6P_6WsSn6XRP9TZXBzaU5w_mgN0TK?usp=drive_link)
 
 ## Configuration
 
@@ -13,10 +12,11 @@ To train QA models on MicrobeDB with BioBERT-v1.1 or DeBERTa-v3, follow the desc
 conda env create -f requirements.yaml
 conda activate qa
 ```
-### Additional Requirements
+
+<!-- ### Additional Requirements
 - Transforms
 - pandas : Transforms the SQuAD prediction file into the BioASQ format (`pip install pandas`)
-- tensorboardX : SummaryWriter module (`pip install tensorboardX`)
+- tensorboardX : SummaryWriter module (`pip install tensorboardX`) -->
 
 ### Dataset
 Default dataset directory: `./dataset`. 
@@ -26,8 +26,8 @@ Place `train-set.json` and `test-set.json` in dataset directory.
 *Tips: You can change the file names by `--train_file`, `--predict_file`*
 
 ### Download Pre-trained model
-- Download the pre-trained model [pytorch_model.bin](https://huggingface.co/ktrapeznikov/biobert_v1.1_pubmed_squad_v2/resolve/main/pytorch_model.bin)
-- Place `pytorch_model.bin` in project's `models/` directory
+- Download the pre-trained model [`deberta-v3-base-microbedb-v1`](https://drive.google.com/drive/folders/1t8Q6P_6WsSn6XRP9TZXBzaU5w_mgN0TK?usp=drive_link)
+- Place model in project's `models/` directory
 
 ### Run Command
 `--data_dir` defines which directory the dataset is in
