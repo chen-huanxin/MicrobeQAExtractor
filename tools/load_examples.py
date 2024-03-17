@@ -7,7 +7,7 @@ from transformers.data.processors.squad import SquadV1Processor
 from processors.preprocess import BioProcessor, squad_convert_examples_to_features
 
 # from processors.distloss_preproc import BioProcessor, squad_convert_examples_to_features
-from processors.distloss_preproc_plus import BioProcessor as BioProcessorDistloss, squad_convert_examples_to_features as squad_convert_examples_to_features_distloss
+# from processors.distloss_preproc_plus import BioProcessor as BioProcessorDistloss, squad_convert_examples_to_features as squad_convert_examples_to_features_distloss
 
 
 logger = logging.getLogger("BIOBERT")
@@ -60,10 +60,7 @@ def load_and_cache_examples(args, tokenizer, evaluate=False, output_examples=Fal
             tfds_examples = tfds.load("squad")
             examples = SquadV1Processor().get_examples_from_dataset(tfds_examples, evaluate=evaluate)
         else:
-            if args.use_distloss:
-                processor = BioProcessorDistloss()
-            else:
-                processor = BioProcessor()
+            processor = BioProcessor()
             if evaluate:
                 examples = processor.get_dev_examples(args.data_dir, filename=args.predict_file)
                 check_example(examples)
@@ -71,28 +68,16 @@ def load_and_cache_examples(args, tokenizer, evaluate=False, output_examples=Fal
                 examples = processor.get_train_examples(args.data_dir, filename=args.train_file, augment=args.data_augment)
                 check_example(examples)
 
-        if args.use_distloss:
-            features, dataset = squad_convert_examples_to_features_distloss(
-                examples=examples,
-                tokenizer=tokenizer,
-                max_seq_length=args.max_seq_length,
-                doc_stride=args.doc_stride,
-                max_query_length=args.max_query_length,
-                is_training=not evaluate,
-                return_dataset="pt",
-                threads=args.threads,
-            )
-        else:
-            features, dataset = squad_convert_examples_to_features(
-                examples=examples,
-                tokenizer=tokenizer,
-                max_seq_length=args.max_seq_length,
-                doc_stride=args.doc_stride,
-                max_query_length=args.max_query_length,
-                is_training=not evaluate,
-                return_dataset="pt",
-                threads=args.threads,
-            )
+        features, dataset = squad_convert_examples_to_features(
+            examples=examples,
+            tokenizer=tokenizer,
+            max_seq_length=args.max_seq_length,
+            doc_stride=args.doc_stride,
+            max_query_length=args.max_query_length,
+            is_training=not evaluate,
+            return_dataset="pt",
+            threads=args.threads,
+        )
 
         if args.local_rank in [-1, 0]:
             logger.info("Saving features into cached file %s", cached_features_file)

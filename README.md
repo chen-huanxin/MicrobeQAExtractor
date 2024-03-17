@@ -4,6 +4,7 @@ This repository provides the code for pathogenic microorganism knowledge extract
 
 ## Models
 - [`deberta-v3-base-microbedb-v1`](https://drive.google.com/drive/folders/1t8Q6P_6WsSn6XRP9TZXBzaU5w_mgN0TK?usp=drive_link)
+- [`biobert_v1.1_microbedb_v1`](https://drive.google.com/drive/folders/1ZMQ90Bx1cNxQbIKaGyCrRZW9HSWWBMoM?usp=drive_link)
 
 ## Configuration
 
@@ -26,7 +27,7 @@ Place `train-set.json` and `test-set.json` in dataset directory.
 *Tips: You can change the file names by `--train_file`, `--predict_file`*
 
 ### Download Pre-trained model
-- Download the pre-trained model [`deberta-v3-base-microbedb-v1`](https://drive.google.com/drive/folders/1t8Q6P_6WsSn6XRP9TZXBzaU5w_mgN0TK?usp=drive_link)
+- Download the pre-trained model
 - Place model in project's `models/` directory
 
 ### Run Command
@@ -34,7 +35,7 @@ Place `train-set.json` and `test-set.json` in dataset directory.
 ```bash
 python run.py \
     --model_type bert \
-    --model_name_or_path deberta-v3-base-microbedb-v1 \
+    --model_name_or_path models/deberta-v3-base-microbedb-v1 \
     --model_class BioModel \  
     --data_dir ./dataset \
     --per_gpu_train_batch_size 12 \

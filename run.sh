@@ -28,6 +28,5 @@ python run.py \
     --save_every_epoch \
     --do_eval \
     --predict_file test-set.json \
-    --version_2_with_negative \
     --calc_auc \
     --data_augment $ADDITIONAL 
