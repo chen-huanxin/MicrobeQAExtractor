@@ -1,7 +1,6 @@
 __pycache__/
 .vscode/
 data-cache/*
-dataset/*
 dataset-*
 output/*
 check_data/*
@@ -14,5 +13,5 @@ output/*
 *.jpg
 output*
 *.ini
-*.json
+# *.json
 __init__.py

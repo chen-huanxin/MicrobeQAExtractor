@@ -1,0 +1,203 @@
+{
+    "version": "an illustrative test sample",
+    "data": [
+        {
+            "species": "Ralstonia solanacearum",
+            "docs": [
+                {
+                    "title": "Nosocomial bloodstream infection and the emerging carbapenem-resistant pathogen Ralstonia insidiosa",
+                    "context": [
+                        {
+                            "qas": [
+                                {
+                                    "question": "Whether Ralstonia solanacearum is gram-positive or gram-negative?",
+                                    "id": "225-1-1-1",
+                                    "answers": [
+                                        {
+                                            "text": "gram-negative",
+                                            "answer_start": 241,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                },
+                                {
+                                    "question": "How about Ralstonia solanacearum's requirement for oxygen?",
+                                    "id": "225-1-1-2",
+                                    "answers": [
+                                        {
+                                            "text": "aerobic",
+                                            "answer_start": 233,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                },
+                                {
+                                    "question": "What is the shape of Ralstonia solanacearum?",
+                                    "id": "225-1-1-3",
+                                    "answers": [
+                                        {
+                                            "text": "rod-shaped",
+                                            "answer_start": 278,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                }
+                            ],
+                            "content": "The six effectively published species defining type strains of the genus Ralstonia (Ralstonia insidiosa, Ralstonia mannitolilytica, Ralstonia picketti, Ralstonia pseudosolanacearum, Ralstonia solanacearum, and Ralstonia syzygii) are aerobic gram-negative, non-fermentative, and rod-shaped bacteria. The bacteria are usually isolated from plants and soils. R. picketti, R. mannitolilytica and R. insidiosa have been recently regarded as pathogens of infectious diseases, especially as causable agents of nosocomial infection related to immunocompromised patients [1]. Contaminated solutions or water are believed to be the sources of Ralstonia nosocomial infections [1, 2]. The previous studies showed that most cases of infection were caused by R. picketti, with a few caused by R. mannitolilytica. The pathogens may cause bloodstream infection, pneumonia, peritonitis, meningitis, endocarditis, spinal osteitis, osteomyelitis, septic arthritis, and prostatitis. R. insidiosa was proposed as a new species in 2003 [3]. Bloodstream infection-related cases are extremely rare; none have been reported from Asia. In addition, further information concerning R. insidiosa, such as antimicrobial susceptibility, genomic profile and epidemiology, is also limited. Such information is clinically relevant, as R. insidiosa may have been underdiagnosed for the past several decades due to its low incidence. The bacterium could also easily be overlooked by researchers. Hence, in this study we described two cases of nosocomial bloodstream infection caused by R. insidiosa strains, including a carbapenems-resistant type."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "species": "Rothia aeria",
+            "docs": [
+                {
+                    "title": "Tube-ovarian abscess caused by Rothia aeria",
+                    "context": [
+                        {
+                            "qas": [
+                                {
+                                    "question": "Whether Rothia aeria is gram-positive or gram-negative?",
+                                    "id": "229-1-1-1",
+                                    "answers": [
+                                        {
+                                            "text": "gram-positive",
+                                            "answer_start": 19,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                },
+                                {
+                                    "question": "Where does R. aeria normally exist?",
+                                    "id": "229-1-1-2",
+                                    "answers": [
+                                        {
+                                            "text": "human oral cavity",
+                                            "answer_start": 324,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                }
+                            ],
+                            "content": " Rothia aeria is a gram-positive amorphous bacillus and was discovered in the Russian space station 'Mir' in 1997. It shows phylogenetic similarity to Actinomyces israelii, and as determined using 16 s ribosomal RNA gene analysis R. aeria is classified as a bacteria of the genus Actinomyces It was found to colonise in the human oral cavity, and there are some infectious reports but none specifies gynaecological infection. A 57-year-old woman, who had been continuously using intrauterine contraceptive device, presented with fever and lower abdominal pain. She was suspected tube-ovarian abscess caused by A. israelii, but the uterine cavity culture revealed R. aeria infection. Considering surgical treatment, conservative treatment by intravenous benzylpenicillin and subsequently oral ampicillin for 6 months improved the abscess, and she has no recurrence for over 1 year. "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "species": "Veillonella parvula",
+            "docs": [
+                {
+                    "title": "Receptor recognition of and immune intracellular pathways for Veillonella parvula lipopolysaccharide",
+                    "context": [
+                        {
+                            "qas": [
+                                {
+                                    "question": "Where does Veillonella parvula normally exist?",
+                                    "id": "232-1-1-2",
+                                    "answers": [
+                                        {
+                                            "text": "animal and human mouth and gastrointestinal and genitourinary tracts",
+                                            "answer_start": 97,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                }
+                            ],
+                            "content": "Veillonella parvula is an anaerobic gram-negative coccus that is part of the normal flora of the animal and human mouth and gastrointestinal and genitourinary tracts. Oral V. parvula is involved in the development of early periodontal disease as well as different types of serious infections. Present data on molecular mechanisms responsible for innate immune response against Veillonella are very scanty. The aim of this study was to investigate the Toll-like receptor (TLR) pathways responsible for V. parvula lipopolysaccharide (LPS) and to identify the intracellular pathways induced by this recognition. V. parvula LPS stimulated tumor necrosis factor alpha (TNF-\u03b1) and interleukin-6 (IL-6) release in human peripheral blood mononuclear cells (PBMC) in a dose-dependent manner. Pretreatment of cells with a TLR4 antagonist significantly reduced TNF-\u03b1 and IL-6 production in PBMC stimulated with either Veillonella or Escherichia coli LPS. However, V. parvula LPS was 10- to 100-fold less active than E. coli LPS for cytokine induction. TNF-\u03b1, IL-1\u03b2, IL-6, and IL-10 were released in wild-type and TLR2, but not TLR4, mouse macrophage cultures. V. parvula LPS was able to activate the human PBMC p38 mitogen-activated protein kinase (MAPK). A specific p38 MAPK inhibitor strongly inhibited V. parvula LPS-induced TNF-\u03b1, IL-1\u03b2, IL-6, and IL-10. In conclusion, V. parvula LPS is able to induce cytokine production in both human and murine in vitro models, although it is less effective than Enterobacteriaceae LPS. V. parvula LPS-stimulated cytokine induction, as well as p38 MAPK activation, are TLR4-dependent features."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "species": "Veillonella dispar",
+            "docs": [
+                {
+                    "title": "Bacteremia caused by Veillonella dispar in an oncological patient",
+                    "context": [
+                        {
+                            "qas": [
+                                {
+                                    "question": "What kinds of drugs are V. dispar resistant to?",
+                                    "id": "234-2-1-6",
+                                    "answers": [
+                                        {
+                                            "text": "metronidazole, penicillin, and piperacillin-tazobactam",
+                                            "answer_start": 421,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                }
+                            ],
+                            "content": "Veillonella dispar is a Gram-negative anaerobic coccus involved in only a few human diseases. We report the second case of bacteremia due to this microorganism in an elderly patient. A 72-year-old man with a history of bladder cancer presented with diarrhea, vomiting, and fever for 48 hours. After the diagnosis of septic shock, four sets of blood cultures were taken, and three of them yielded V. dispar. Resistance to metronidazole, penicillin, and piperacillin-tazobactam was documented. Treatment with clindamycin was started, and the patient was discharged after improvement in his general condition."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "species": "Stenotrophomonas maltophilia",
+            "docs": [
+                {
+                    "title": "Stenotrophomonas maltophilia: an emerging global opportunistic pathogen",
+                    "context": [
+                        {
+                            "qas": [
+                                {
+                                    "question": "Where does S. maltophilia normally exist?",
+                                    "id": "236-2-1-1",
+                                    "answers": [
+                                        {
+                                            "text": "aqueous habitats, including plant rhizospheres, animals, foods, and water sources",
+                                            "answer_start": 387,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                }
+                            ],
+                            "content": "Summary: Stenotrophomonas maltophilia is an emerging multidrug-resistant global opportunistic pathogen. The increasing incidence of nosocomial and community-acquired S. maltophilia infections is of particular concern for immunocompromised individuals, as this bacterial pathogen is associated with a significant fatality\/case ratio. S. maltophilia is an environmental bacterium found in aqueous habitats, including plant rhizospheres, animals, foods, and water sources. Infections of S. maltophilia can occur in a range of organs and tissues; the organism is commonly found in respiratory tract infections. This review summarizes the current literature and presents S. maltophilia as an organism with various molecular mechanisms used for colonization and infection. S. maltophilia can be recovered from polymicrobial infections, most notably from the respiratory tract of cystic fibrosis patients, as a cocolonizer with Pseudomonas aeruginosa. Recent evidence of cell-cell communication between these pathogens has implications for the development of novel pharmacological therapies. Animal models of S. maltophilia infection have provided useful information about the type of host immune response induced by this opportunistic pathogen. Current and emerging treatments for patients infected with S. maltophilia are discussed."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "species": "Streptococcus pneumoniae",
+            "docs": [
+                {
+                    "title": "Streptococcus pneumoniae urinary tract infection in pedeatrics",
+                    "context": [
+                        {
+                            "qas": [
+                                {
+                                    "question": "What kinds of diseases can Streptococcus pneumoniae cause?",
+                                    "id": "239-2-1-1",
+                                    "answers": [
+                                        {
+                                            "text": "lung infections or meningitis",
+                                            "answer_start": 64,
+                                            "id": 1
+                                        }
+                                    ],
+                                    "is_impossible": false
+                                }
+                            ],
+                            "content": " Streptococcus pneumoniae infections in children are most often lung infections or meningitis. Urinary tract infections are much rarer. We present the case of a urinary tract infection with Streptococcus pneumoniae. The clinical picture was classical. The urine culture showed the presence of Streptococcus pneumoniae in urine (10 UFC\/mL; with 2 \u00d7 10 leucocytes\/mL). The literature mentions a few cases of such infections. In some studies, the prevalence of Streptococcus pneumoniae in urine of children is less than 1%. Those children mostly present abnormalities of urinary tract. In our case, urinary ultrasound scan have shown the presence of an ectopic kidney in this child. The discussion between the clinician and the biologist has contributed to the discovery of this renal anomaly. "
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
