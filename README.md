@@ -1,6 +1,6 @@
 # MicrobeQAExtractor
 
-This repository provides the code for pathogenic microorganism knowledge extraction and the trained model weights, along with an illustrative test sample.
+This repository provides the code for pathogenic microorganism knowledge extraction and the trained model weights, along with several illustrative test samples.
 
 ## Models
 - [`deberta-v3-base-microbedb-v1`](https://drive.google.com/drive/folders/1t8Q6P_6WsSn6XRP9TZXBzaU5w_mgN0TK?usp=drive_link)
@@ -22,7 +22,6 @@ conda activate qa
 ### Dataset
 Default dataset directory: `./dataset`. 
 Place `train-set.json` and `test-set.json` in dataset directory.
-
 
 *Tips: You can change the file names by `--train_file`, `--predict_file`*
 
@@ -55,7 +54,7 @@ python run.py \
     --do_eval
     --predict_file test-set.json
 ```
-Or just run the preject by shell script `run.sh`
+<!-- Or just run the preject by shell script `run.sh`
 ```bash
 ./run.sh [GPU] [EPOCH] [ROOT] [MODEL]
 # like
@@ -63,7 +62,7 @@ Or just run the preject by shell script `run.sh`
 ./run.sh 1              # Use No.1 GPU
 ./run.sh 2 10           # Use No.2 GPU, run 10 epoches
 ./run.sh 3 20 ../dataset # Use No.3 GPU, run 20 epoches, the dataset is in the directory ../dataset
-```
+``` -->
 
 ### Related work
 This code comes from related work: **Interpretation knowledge extraction for genetic testing via question-answer model**
