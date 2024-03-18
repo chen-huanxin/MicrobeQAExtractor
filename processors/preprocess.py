@@ -36,10 +36,10 @@ class BioProcessor(SquadV2Processor):
             docs = data["docs"]
             for doc in docs:
                 title = doc["title"]
-                paragraphs = doc["paragraphs"]
-                for paragraph in paragraphs:
-                    qas = paragraph["qas"]
-                    context_text = paragraph["content"]
+                contexts = doc["context"]
+                for context in contexts:
+                    qas = context["qas"]
+                    context_text = context["content"]
                     for qa in qas:
                         question_text = qa["question"]
                         qas_id = qa["id"]
