@@ -1,6 +1,6 @@
 GPU=${1:-0}
 EPOCH=${2:-3}
-ROOT=${3:-"./dataset"}
+DATA_DIR=${3:-"./dataset/"}
 MODEL=${4:-"BioModel"}
 OUTPUT_DIR=${5:-"./output"}
 
@@ -10,7 +10,7 @@ python run.py \
     --load_remote_model \
     --model_class $MODEL\
     --do_train \
-    --data_dir $ROOT \
+    --data_dir $DATA_DIR \
     --train_file train-set.json \
     --per_gpu_train_batch_size 4 \
     --learning_rate 8e-6 \

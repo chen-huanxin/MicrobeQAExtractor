@@ -57,7 +57,7 @@ python run.py \
 ```
 Or just run the preject by shell script `run.sh`
 ```bash
-./run.sh [GPU] [EPOCH] [ROOT] [MODEL]
+./run.sh [GPU] [EPOCH] [DATA_DIR] [MODEL]
 # like
 ./run.sh                # default: Use No.0 GPU, run 3 epoches, the dataset is in the directory ./dataset
 ./run.sh 1              # Use No.1 GPU
