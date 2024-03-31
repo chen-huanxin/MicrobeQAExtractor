@@ -59,10 +59,10 @@ Or just run the preject by shell script `run.sh`
 ```bash
 ./run.sh [GPU] [EPOCH] [DATA_DIR] [MODEL]
 # like
-./run.sh                # default: Use No.0 GPU, run 3 epoches, the dataset is in the directory ./dataset
+./run.sh                # default: Use No.0 GPU, run 3 epoches, the dataset is in the directory ./dataset/
 ./run.sh 1              # Use No.1 GPU
 ./run.sh 2 10           # Use No.2 GPU, run 10 epoches
-./run.sh 3 20 ../dataset # Use No.3 GPU, run 20 epoches, the dataset is in the directory ../dataset
+./run.sh 3 20 ../dataset/ # Use No.3 GPU, run 20 epoches, the dataset is in the directory ../dataset
 ```
 
 ### Related work
