@@ -60,7 +60,7 @@ def main():
         ptvsd.wait_for_attach()
 
     # Setup CUDA, GPU & distributed training
-    if args.local_rank == -1 or args.no_cuda: # local_rank是用于分布式训练的，为-1是不使用分布式训练
+    if args.local_rank == -1 or args.no_cuda: 
         if args.single_gpu:
             if torch.cuda.is_available():
                 torch.cuda.set_device(args.gpu)
@@ -86,37 +86,37 @@ def main():
         level=logging.INFO if args.local_rank in [-1, 0] else logging.WARN,
     )
     logger.warning(
-        "Process rank: %s, device: %s, n_gpu: %s, distributed training: %s, 16-bits training: %s", # 输出一些调试信息
+        "Process rank: %s, device: %s, n_gpu: %s, distributed training: %s, 16-bits training: %s", 
         args.local_rank,
         device,
         args.n_gpu,
         bool(args.local_rank != -1),
         args.fp16,
     )
-    fh_file = logging.FileHandler(os.path.join(args.output_dir, current_time + '.log'), encoding='utf8')  # 日志文件的handler
+    fh_file = logging.FileHandler(os.path.join(args.output_dir, current_time + '.log'), encoding='utf8')  
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s -  %(message)s")
     fh_file.setLevel(logging.DEBUG)
     fh_file.setFormatter(formatter)
     logger.addHandler(fh_file)
 
     # Set seed
-    set_seed(args.seed, args.n_gpu) # 其实就用到了args.seed，就设置个0而已
+    set_seed(args.seed, args.n_gpu)
 
     # Load pretrained model and tokenizer
     if args.local_rank not in [-1, 0]:
         # Make sure only the first process in distributed training will download model & vocab
         torch.distributed.barrier()
 
-    args.model_type = args.model_type.lower() # 转换成小写
+    args.model_type = args.model_type.lower() 
     config = AutoConfig.from_pretrained(
         args.config_name if args.config_name else args.model_name_or_path,
-        cache_dir=args.cache_dir if args.cache_dir else None, # 输入的是None
+        cache_dir=args.cache_dir if args.cache_dir else None, 
     )
     tokenizer = AutoTokenizer.from_pretrained(
         args.tokenizer_name if args.tokenizer_name else args.model_name_or_path,
         do_lower_case=args.do_lower_case,
-        cache_dir=args.cache_dir if args.cache_dir else None, # 输入的是None
-        use_fast=False, # 注意：这里要设置成False，不然运行会报错
+        cache_dir=args.cache_dir if args.cache_dir else None, 
+        use_fast=False, 
     )
     # model = AutoModelForQuestionAnswering.from_pretrained(
     #     args.model_name_or_path,
@@ -131,16 +131,16 @@ def main():
 
     if args.local_rank == 0:
         # Make sure only the first process in distributed training will download model & vocab
-        torch.distributed.barrier() # 分布式训练时用的栅栏
+        torch.distributed.barrier() 
 
     model.to(args.device)
 
-    logger.info("Training/evaluation parameters %s", args) # 输出训练参数的信息
+    logger.info("Training/evaluation parameters %s", args)
 
     # Before we do anything with models, we want to ensure that we get fp16 execution of torch.einsum if args.fp16 is set.
     # Otherwise it'll default to "promote" mode, and we'll get fp32 operations. Note that running `--fp16_opt_level="O2"` will
     # remove the need for this code, but it is still valid.
-    if args.fp16: # 没有用到半精度
+    if args.fp16: 
         try:
             import apex
 

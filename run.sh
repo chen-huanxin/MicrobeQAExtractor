@@ -1,14 +1,12 @@
 GPU=${1:-0}
 EPOCH=${2:-3}
-ROOT=${3:-"./dataset/"}
+ROOT=${3:-"./dataset"}
 MODEL=${4:-"BioModel"}
 OUTPUT_DIR=${5:-"./output"}
-ADDITIONAL=${6:-""}
+
 python run.py \
     --model_type bert \
-    --model_name_or_path deepset/deberta-v3-large-squad2 \
-    --config_name deepset/deberta-v3-large-squad2 \
-    --tokenizer_name deepset/deberta-v3-large-squad2 \
+    --model_name_or_path models/deberta-v3-base-microbedb-v1 \
     --load_remote_model \
     --model_class $MODEL\
     --do_train \
@@ -23,10 +21,8 @@ python run.py \
     --overwrite_output_dir \
     --single_gpu \
     --gpu $GPU \
-    --eval_every_epoch \
     --logging_every_epoch \
     --save_every_epoch \
     --do_eval \
     --predict_file test-set.json \
-    --calc_auc \
-    --data_augment $ADDITIONAL 
+    --data_augment

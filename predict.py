@@ -23,8 +23,8 @@ CONCRETE_QUESTION = {
     'part': "Where does XX normally exist?", 
     'disease': "What kinds of disease can XX cause?", 
     'pathogenicity': "What about the pathogenicity of XX?", 
-    'sensitivity': "What kinds of drugs is XX sensitive to?", 
-    'tolerance': "What kinds of drugs is XX resistant to?", 
+    'sensitivity': "What kinds of drugs are XX sensitive to?", 
+    'tolerance': "What kinds of drugs are XX resistant to?", 
     'aerobic': "How about XX's requirement for oxygen?", 
     'morphology': "What is the shape of XX?", 
 }
@@ -47,7 +47,7 @@ class Prophet:
             self._args.tokenizer_name,
             do_lower_case=self._args.do_lower_case,
             cache_dir=self._args.cache_dir, 
-            use_fast=False, # 注意：这里要设置成False，不然运行会报错
+            use_fast=False, 
         )
 
         target_model = MODEL_CLASS_TABLE[self._args.model_class]
@@ -66,7 +66,7 @@ class Prophet:
             is_training=False,
             return_dataset="pt",
             threads=self._args.threads,
-            tqdm_enabled=self._args.tqdm_enabled, # 关闭进度条输出
+            tqdm_enabled=self._args.tqdm_enabled, 
         )
 
         eval_dataloader = DataLoader(dataset, batch_size=self._args.per_gpu_eval_batch_size)
@@ -336,7 +336,5 @@ if __name__ == "__main__":
     print(f"Evaluation done in total {evalTime} secs")
     print(rst)
 
-    # 1. 使用custom_args_to_json来生成config.json文件，可以利用config.ini文件进行自定义配置
-    # 2. 将生成的config.json文件放到部署服务器上
 
 

@@ -240,7 +240,7 @@ def compute_predictions_logits(
                         )
                     )
         if version_2_with_negative:
-            if score_null != 1000000: # 防止在prelim_predictions为空的情况下再插入一个非法值
+            if score_null != 1000000: 
                 prelim_predictions.append(
                     _PrelimPrediction(
                         feature_index=min_null_feature_index,
@@ -321,7 +321,7 @@ def compute_predictions_logits(
                     best_non_null_entry = entry
                     best_idx = idx
 
-        probs = _compute_softmax(total_scores) # TODO: 尝试使用Hugging Face上面的方法
+        probs = _compute_softmax(total_scores) 
 
         nbest_json = []
         for i, entry in enumerate(nbest):
@@ -336,12 +336,12 @@ def compute_predictions_logits(
         assert len(nbest_json) >= 1, "No valid predictions"
 
         if not version_2_with_negative:
-            all_predictions[example.qas_id] = {"text": nbest_json[0]["text"], "offset": nbest_json[0]["char_start"], "prob": nbest_json[0]["probability"], "title": example.title} # TODO: qas_id
+            all_predictions[example.qas_id] = {"text": nbest_json[0]["text"], "offset": nbest_json[0]["char_start"], "prob": nbest_json[0]["probability"], "title": example.title} 
         else:
             # predict "" if the null score - the score of best non-null > threshold
             score_diff = score_null - best_non_null_entry.start_logit - (best_non_null_entry.end_logit) 
             scores_diff_json[example.qas_id] = score_diff
-            if score_diff > null_score_diff_threshold: # 筛选的阈值
+            if score_diff > null_score_diff_threshold: 
                 all_predictions[example.qas_id] = {"text": "", "offset": -1, "prob": 1, "title": example.title}
             else:
                 all_predictions[example.qas_id] = {"text": best_non_null_entry.text, "offset": best_non_null_entry.char_start, "prob": probs[best_idx], "title": example.title}

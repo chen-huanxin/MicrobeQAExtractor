@@ -22,7 +22,7 @@ def load_and_cache_examples(args, tokenizer, evaluate=False, output_examples=Fal
     # Load data features from cache or dataset file
     input_dir = args.data_dir if args.data_dir else "."  
     name = os.path.basename(args.predict_file if evaluate else args.train_file)
-    stem, _ = os.path.splitext(name) # 获取文件名
+    stem, _ = os.path.splitext(name)
 
     cached_features_file = os.path.join(
         input_dir,
@@ -37,7 +37,7 @@ def load_and_cache_examples(args, tokenizer, evaluate=False, output_examples=Fal
     )
 
     # Init features and dataset from cache if it exists
-    if os.path.exists(cached_features_file) and not args.overwrite_cache: # 如果之前已经生成了cache，没有清除，不会进入该分支
+    if os.path.exists(cached_features_file) and not args.overwrite_cache:
         logger.info("Loading features from cached file %s", cached_features_file)
         features_and_dataset = torch.load(cached_features_file)
         features, dataset, examples = (
@@ -48,7 +48,7 @@ def load_and_cache_examples(args, tokenizer, evaluate=False, output_examples=Fal
     else:
         logger.info("Creating features from dataset file at %s", input_dir)
 
-        if not args.data_dir and ((evaluate and not args.predict_file) or (not evaluate and not args.train_file)): # 用不到，不会进入，因为我们定义了args.train_file
+        if not args.data_dir and ((evaluate and not args.predict_file) or (not evaluate and not args.train_file)):
             try:
                 import tensorflow_datasets as tfds
             except ImportError:

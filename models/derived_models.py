@@ -17,11 +17,11 @@ from .original_model import BertForQuestionAnswering
 
 @dataclass
 class QAModelOutputWithClassify(QuestionAnsweringModelOutput):
-    pred_impossible: Optional[Tuple[torch.FloatTensor]] = None # 输入GoldTruth也是Float
+    pred_impossible: Optional[Tuple[torch.FloatTensor]] = None 
 
 def padding(X: Tensor, length: int, value: float=-inf):
     padding_shape = X.shape[:-2] + (length - X.shape[-2], X.shape[-1])
-    return torch.concat([X, torch.zeros(padding_shape, device=X.device)], dim=0) # 这里1024被我改成了X_len=384
+    return torch.concat([X, torch.zeros(padding_shape, device=X.device)], dim=0) 
 
 
 def locateSEP(ids: List[int])->Tuple[int, int]:
@@ -86,7 +86,7 @@ class BiClassifyHeaderOne(nn.Module):
     def __init__(self, seq_len) -> None:
         super().__init__()
         self.seq_len = seq_len
-        self.fc = nn.Linear(self.seq_len * 768, 1) # 全连接层full connect TODO: 前一个参数不能是固定值，应该是计算出来的才对
+        self.fc = nn.Linear(self.seq_len * 768, 1)
         self.relu = nn.ReLU()
         self.sigmoid = nn.Sigmoid()
 
@@ -102,7 +102,7 @@ class BiClassifyHeaderTwo(nn.Module):
     def __init__(self, seq_len) -> None:
         super().__init__()
         self.seq_len = seq_len
-        self.fc = nn.Linear(self.seq_len * 768, 2) # 全连接层full connect TODO: 前一个参数不能是固定值，应该是计算出来的才对
+        self.fc = nn.Linear(self.seq_len * 768, 2) 
         self.relu = nn.ReLU()
         self.softmax = nn.Softmax(dim=1)
 
@@ -113,13 +113,13 @@ class BiClassifyHeaderTwo(nn.Module):
         return out
     
 
-class BiClassifyCNNHeader(nn.Module): # 参考文献：Convolutional Neural Networks for Sentence Classification
+class BiClassifyCNNHeader(nn.Module):
 
     def __init__(self, in_channel) -> None:
         super().__init__()
         # self.conv2d = nn.Conv2d(in_channel, in_channel, 5, 1)
         self.conv1d = nn.Conv1d(in_channel, in_channel, 5, 1)
-        self.maxpool = nn.MaxPool1d(764) # TODO: 最好能设计成动态变化的
+        self.maxpool = nn.MaxPool1d(764) 
         self.dropout = nn.Dropout(p=0.5)
         self.fc = nn.Linear(384, 2)
         self.relu = nn.ReLU()
@@ -175,7 +175,7 @@ class BioModel(nn.Module):
                     "start_positions": batch[3],
                     "end_positions": batch[4],
                     "output_hidden_states": True,
-                    "position_nums": batch[8], # 注意，这是distlosss模型中新加入的参数
+                    "position_nums": batch[8],
                 }
             else:
                 inputs = {
@@ -209,7 +209,6 @@ class BioModel(nn.Module):
         return self.postProcess(batch, outputs)
 
 
-############## 二分类头 ##############
 class BioModelClassify(BioModel):
     __metaclass__ = ABCMeta
 
@@ -230,7 +229,6 @@ class BioModelClassify(BioModel):
             batch: Tuple, 
             outputs
         ):
-        # TODO: 拿到outputs.hidden_states的最后一层，然后经过二分类头，输出output2，计算loss，加入到原先的loss，然后返回result
         pass
 
     def postProcess(
@@ -310,7 +308,6 @@ class BioModelClassifyCNN(BioModelClassify):
         return out[:, 0].unsqueeze(1), loss
 
 
-############## 注意力机制 ##############
 class BioModelExtend(BioModel):
     __metaclass__ = ABCMeta
 

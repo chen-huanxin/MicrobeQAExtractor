@@ -71,7 +71,7 @@ def eval_f1_em(answers, predictions):
             print(message)
             continue
 
-        ground_truths = list(map(lambda x: x['text'], answers[qid])) # 去除answers[qid]['text']变成list，answers[qid]是可迭代的？
+        ground_truths = list(map(lambda x: x['text'], answers[qid])) 
         prediction = predictions[qid]['text']
 
         if ground_truths:    
@@ -80,7 +80,7 @@ def eval_f1_em(answers, predictions):
             solvable_total_num += 1
             solvable_f1 += cur_f1
             solvable_em += cur_em
-        else:                   # 处理答案为空的逻辑
+        else:                   
             if prediction:
                 cur_em = 0.0
                 cur_f1 = 0.0
@@ -143,14 +143,14 @@ def eval_auc(answers, predictions, ques_type, output_dir="", prefix="", threshol
         ground_truths = list(map(lambda x: x['text'], answers[qid]))
         prediction = predictions[qid]['text']
 
-        if ground_truths: # 有答案
-            if prediction: # 真阳性
+        if ground_truths: 
+            if prediction: 
                 cur_em = metric_max_over_ground_truths(exact_match_score, prediction, ground_truths)
                 cur_f1 = metric_max_over_ground_truths(f1_score, prediction, ground_truths)
                 # tp_qid.append(qid)
                 tp_num += 1
                 table[q_type]['tp'] += 1
-            else: # 假阴性
+            else: 
                 cur_em = 0
                 cur_f1 = 0
                 # fn_qid.append(qid)
@@ -165,7 +165,7 @@ def eval_auc(answers, predictions, ques_type, output_dir="", prefix="", threshol
             solvable_f1 += cur_f1
             table[q_type]['solvable_f1'] += cur_f1
         else:
-            if prediction: # 假阳性
+            if prediction: 
                 cur_em = 0
                 cur_f1 = 0
                 # fp_qid.append(qid)
@@ -173,7 +173,7 @@ def eval_auc(answers, predictions, ques_type, output_dir="", prefix="", threshol
                 table[q_type]['fp'] += 1
                 err_qid.append(qid)
 
-            else: # 真阴性
+            else: 
                 cur_em = 1
                 cur_f1 = 1
                 # tn_qid.append(qid)
@@ -226,8 +226,8 @@ def eval_auc(answers, predictions, ques_type, output_dir="", prefix="", threshol
 
 
 def calc_roc_curve_index(tp, fp, tn, fn):
-    tpr = tp / (tp + fn) if (tp + fn) != 0 else 1 # 召回率、灵敏度
-    fpr = fp / (fp + tn) if (fp + tn) != 0 else 0 # 误报率、特异度
+    tpr = tp / (tp + fn) if (tp + fn) != 0 else 1 
+    fpr = fp / (fp + tn) if (fp + tn) != 0 else 0 
 
     return tpr, fpr
     

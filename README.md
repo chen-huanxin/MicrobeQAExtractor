@@ -35,9 +35,9 @@ Place `train-set.json` and `test-set.json` in dataset directory.
 python run.py \
     --model_type bert \
     --model_name_or_path models/deberta-v3-base-microbedb-v1 \
+    --load_remote_model \
     --model_class BioModel \  
     --data_dir ./dataset \
-    --per_gpu_train_batch_size 12 \
     --learning_rate 8e-6 \
     --num_train_epochs 3 \
     --max_seq_length 384 \
@@ -48,13 +48,14 @@ python run.py \
     --gpu 0 \
 # Train
     --do_train \
+    --per_gpu_train_batch_size 12 \
     --train_file train-set.json \
 
 # Evaluation
     --do_eval
     --predict_file test-set.json
 ```
-<!-- Or just run the preject by shell script `run.sh`
+Or just run the preject by shell script `run.sh`
 ```bash
 ./run.sh [GPU] [EPOCH] [ROOT] [MODEL]
 # like
@@ -62,7 +63,7 @@ python run.py \
 ./run.sh 1              # Use No.1 GPU
 ./run.sh 2 10           # Use No.2 GPU, run 10 epoches
 ./run.sh 3 20 ../dataset # Use No.3 GPU, run 20 epoches, the dataset is in the directory ../dataset
-``` -->
+```
 
 ### Related work
 This code comes from related work: **Interpretation knowledge extraction for genetic testing via question-answer model**

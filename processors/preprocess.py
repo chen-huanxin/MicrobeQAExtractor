@@ -31,7 +31,7 @@ class BioProcessor(SquadV2Processor):
     def _create_examples(self, input_data, set_type, augment=False):
         is_training = set_type == "train"
         examples = []
-        for data in tqdm(input_data): # tqdm(input_data)可以看成data下面的数组
+        for data in tqdm(input_data): 
             speices = data["species"]
             docs = data["docs"]
             for doc in docs:
@@ -121,7 +121,7 @@ class BioProcessor(SquadV2Processor):
 
                                 if augment:
                                     if re.search("sensitive to?", question_text):
-                                        prefix = "What kinds of drugs is "
+                                        prefix = "What kinds of drugs are "
                                         suffix = " sensitive to?"
                                         start = question_text.find(prefix) + len(prefix)
                                         end = question_text.find(suffix)
@@ -732,7 +732,7 @@ def squad_convert_examples_to_features(
         if not is_training:
             all_feature_index = torch.arange(all_input_ids.size(0), dtype=torch.long)
             dataset = TensorDataset(
-                all_input_ids, all_attention_masks, all_token_type_ids, all_feature_index, all_cls_index, all_p_mask, all_is_impossible, all_is_impossible # 这里做了修改，因为要保证第七个位置是is_impossible，二分类头才能读到结果
+                all_input_ids, all_attention_masks, all_token_type_ids, all_feature_index, all_cls_index, all_p_mask, all_is_impossible, all_is_impossible 
             )
         else:
             all_start_positions = torch.tensor([f.start_position for f in features], dtype=torch.long)

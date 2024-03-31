@@ -1,9 +1,6 @@
 def produce_answers(ans_info, example, f1_score, output_file):
-    # example: 当前样本信息
-    # content: 文章内容
     content = example.context_text
 
-    # ans: 预测的答案
     ans = ans_info['text']
     
     if ans:
@@ -16,10 +13,7 @@ def produce_answers(ans_info, example, f1_score, output_file):
         if end >= len(content):
             end = len(content) - 1
 
-        # 输出结果到指定文件
-        # 如果有预测结果，则将结果在passage中高亮出来
         if start <= end:
-            # sentence_start, sentence_end: 答案所在的句子
             sentence_start = start
             sentence_end = end
             while sentence_start >= 0:
@@ -33,7 +27,6 @@ def produce_answers(ans_info, example, f1_score, output_file):
                 else:
                     break
 
-            # 句子用黄色高亮，答案用蓝色高亮
             content = (
                     "".join(content[:sentence_start + 1]) +
                     '<span style="background: yellow; color: black">' +
@@ -60,21 +53,21 @@ def produce_answers(ans_info, example, f1_score, output_file):
     output_file.write(f"""\n===========================================
     <table border="1">
         <tr>
-        <td width="15%" valign="top"><b>标题</b></td>         <td>{example.title}</td> </tr>
+        <td width="15%" valign="top"><b>title</b></td>         <td>{example.title}</td> </tr>
         <tr>
-        <td width="15%" valign="top"><b>上下文</b></td>       <td>{content}</td></tr>
+        <td width="15%" valign="top"><b>contex</b></td>       <td>{content}</td></tr>
         <tr>
-        <td width="15%" valign="top"><b>问题</b></td>      <td>{example.question_text}</td></tr>
+        <td width="15%" valign="top"><b>question</b></td>      <td>{example.question_text}</td></tr>
         <tr>
-        <td width="15%" valign="top"><b>标记</b></td>         <td>{ori_ans}</td></tr>
+        <td width="15%" valign="top"><b>label</b></td>         <td>{ori_ans}</td></tr>
         <tr>
-        <td width="15%" valign="top"><b>标记位置</b></td>  <td>{ori_start}</td></tr>
+        <td width="15%" valign="top"><b>label position</b></td>  <td>{ori_start}</td></tr>
         <tr>
-        <td width="15%" valign="top"><b>预测</b></td>          <td>{ans}</td></tr>
+        <td width="15%" valign="top"><b>prediction</b></td>          <td>{ans}</td></tr>
         <tr>
-        <td width="15%" valign="top"><b>预测位置</b></td>  <td>[{start}, {end + 1}]</td></tr>
+        <td width="15%" valign="top"><b>prediction position</b></td>  <td>[{start}, {end + 1}]</td></tr>
         <tr>
-        <td width="15%" valign="top"><b>F1得分</b></td>      <td>{f1_score}</td></tr>
+        <td width="15%" valign="top"><b>F1 score</b></td>      <td>{f1_score}</td></tr>
     </table>
     """)
 
@@ -87,16 +80,14 @@ ques_patterns = [
     "What kinds of disease can [\s\S]* cause?", 
     "What about the pathogenicity of [\s\S]*?", 
     "How about the virulence of [\s\S]*?", 
-    "What kinds of drugs is [\s\S]* sensitive to?", 
-    "What kinds of drugs is [\s\S]* resistant to?",
+    "What kinds of drugs are [\s\S]* sensitive to?", 
+    "What kinds of drugs are [\s\S]* resistant to?",
     "How about [\s\S]*'s requirement for oxygen?", 
     "Whether [\s\S]* has catalase?", 
     "What is the shape of [\s\S]*?", 
     "How about the motility of [\s\S]*?", 
     "Whether the [\s\S]* forms spores?",
 
-
-    # 数据增强
     # part
     "What are the typical habitats of [\s\S]*?",
     "In what environments can [\s\S]* be found?",

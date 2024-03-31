@@ -26,13 +26,13 @@ class SquadImpossible:
         self.unique_id = unique_id
 
 
-def eval_one_batch(model, batch, features): # 确保model.eval()也被执行
+def eval_one_batch(model, batch, features): 
     batch_result = []
     batch_pred_unsolvable = []
 
     with torch.no_grad():
         feature_indices = batch[3]
-        outputs = model(batch, is_training=False) # 如果出现missing position 'batch', 那就是忘了设置single_gpu
+        outputs = model(batch, is_training=False) 
 
     for i, feature_index in enumerate(feature_indices):
         eval_feature = features[feature_index.item()]
@@ -127,17 +127,16 @@ def evaluate(args, model, tokenizer, prefix=""):
     ques_type = {example.qas_id: getQuesType(example.question_text)  for example in examples}
     answers = {example.answers['id']: example.answers['answers'] for example in examples}
 
-    if args.calc_auc:
-        offset = args.threshold_step
-        threshold_range = np.arange(args.threshold_start, args.threshold_end + offset, offset)
-    else:
-        threshold_range = [args.null_score_diff_threshold]
+    # if args.calc_auc:
+    #     offset = args.threshold_step
+    #     threshold_range = np.arange(args.threshold_start, args.threshold_end + offset, offset)
+    # else:
+    #     threshold_range = [args.null_score_diff_threshold]
+    threshold_range = [args.null_score_diff_threshold]
     
     tpr = []
     fpr = []
 
-    # for threshold in range(0, offset, 1 + offset):
-    # for threshold in np.arange(40, -40 + offset, offset): # 这个计算出来的AUC是负的
     for threshold in threshold_range:
         predictions = compute_predictions_logits(
             examples,
@@ -169,7 +168,7 @@ def evaluate(args, model, tokenizer, prefix=""):
         logger.info(f"  TOTAL F1 score = {eval_rst['f1']:.2f}")
         logger.info(f"  SOLVABLE EM = {eval_rst['solvable_em']:.2f}")
         logger.info(f"  SOLVABLE F1 score = {eval_rst['solvable_f1']:.2f}")
-        logger.info(f"** THRESHOLD = {threshold} ************************************")
+        logger.info(f"********************************************************")
         logger.info(f"  TP = {eval_rst['tp']}")
         logger.info(f"  FP = {eval_rst['fp']}")
         logger.info(f"  TN = {eval_rst['tn']}")

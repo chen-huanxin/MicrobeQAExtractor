@@ -15,3 +15,5 @@ output*
 *.ini
 # *.json
 __init__.py
+models/deberta-v3-base-microbedb-v1/*
+cached*

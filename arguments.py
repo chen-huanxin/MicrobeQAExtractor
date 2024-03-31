@@ -56,13 +56,13 @@ def get_parser():
         choices=MODEL_CLASS_TABLE.keys(),
         help="The model class to use",
     )
-    parser.add_argument( # 用于验证，还没定义
+    parser.add_argument( 
         "--golden_file",
         default=None,
         type=str,
         help="BioASQ official golden answer file"
     )
-    parser.add_argument( # 用于验证，还没定义
+    parser.add_argument( 
         "--official_eval_dir",
         default='./scripts/bioasq_eval',
         type=str,
@@ -91,10 +91,10 @@ def get_parser():
         help="The input evaluation file. If a data dir is specified, will look for the file there"
         + "If no data dir or train/predict files are specified, will run with tensorflow_datasets.",
     )
-    parser.add_argument( # 没定义，直接用model_name_or_path的值
+    parser.add_argument( 
         "--config_name", default="", type=str, help="Pretrained config name or path if not the same as model_name"
     )
-    parser.add_argument( # 没定义，直接用model_name_or_path的值
+    parser.add_argument( 
         "--tokenizer_name",
         default="",
         type=str,
@@ -107,16 +107,16 @@ def get_parser():
         help="Where do you want to store the pre-trained models downloaded from s3",
     )
 
-    parser.add_argument( # 第二版，包含is_impossible的数据集
+    parser.add_argument( 
         "--version_2_with_negative",
         action="store_true",
-        help="If true, the SQuAD examples contain some that do not have an answer.", # 包含没答案的样本
+        help="If true, the SQuAD examples contain some that do not have an answer.", 
     )
     parser.add_argument(
         "--null_score_diff_threshold",
         type=float,
         default=0.0,
-        help="If null_score - best_non_null is greater than the threshold predict null.", # 如果null_score的值比阈值高，就预测为空
+        help="If null_score - best_non_null is greater than the threshold predict null.", 
     )
 
     parser.add_argument( # 384
@@ -126,7 +126,7 @@ def get_parser():
         help="The maximum total input sequence length after WordPiece tokenization. Sequences "
         "longer than this will be truncated, and sequences shorter than this will be padded.",
     )
-    parser.add_argument( # 没定义，用默认值
+    parser.add_argument( 
         "--doc_stride",
         default=128,
         type=int,
@@ -207,7 +207,7 @@ def get_parser():
     )
     # parser.add_argument("--eval_epoches", type=int, default=10, help="Evaluate model every X epoches. ")
     parser.add_argument("--no_cuda", action="store_true", help="Whether not to use CUDA when available")
-    parser.add_argument( # 是否要覆盖output目录的内容
+    parser.add_argument( 
         "--overwrite_output_dir", action="store_true", help="Overwrite the content of the output directory"
     )
     parser.add_argument(
@@ -215,11 +215,11 @@ def get_parser():
     )
     parser.add_argument("--seed", type=int, default=42, help="random seed for initialization") # 0
 
-    parser.add_argument("--local_rank", type=int, default=-1, help="local_rank for distributed training on gpus") # 用于分布式训练的，这里用不上，-1表示不使用
+    parser.add_argument("--local_rank", type=int, default=-1, help="local_rank for distributed training on gpus") 
     parser.add_argument(
         "--fp16",
         action="store_true",
-        help="Whether to use 16-bit (mixed) precision (through NVIDIA apex) instead of 32-bit", # 是否使用半精度浮点数进行训练
+        help="Whether to use 16-bit (mixed) precision (through NVIDIA apex) instead of 32-bit", 
     )
     parser.add_argument(
         "--fp16_opt_level",
@@ -245,6 +245,6 @@ def get_parser():
     parser.add_argument("--threshold_end", type=float, default=40.0, help="threshold end value")
     parser.add_argument("--threshold_step", type=float, default=8.0, help="threshold step value")
     parser.add_argument("--load_remote_model", action="store_true", default=False, help="load model from remote")
-    parser.add_argument("--use_distloss", action="store_true", default=False, help="Whether use distloss func(with position_nums params when training)") # 添加这一个选项，输入模型的参数会多`position_nums`这一项
+    parser.add_argument("--use_distloss", action="store_true", default=False, help="Whether use distloss func(with position_nums params when training)") 
 
     return  parser.parse_args()

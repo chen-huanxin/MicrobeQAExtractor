@@ -1812,7 +1812,7 @@ class BertForQuestionAnswering(BertPreTrainedModel):
         self.num_labels = config.num_labels
 
         # self.bert = BertModel(config, add_pooling_layer=False)
-        self.bert = BertModel(config, add_pooling_layer=True)  # 之前模型跑不通，可能是因为这里add_pooling_layer没有改成True
+        self.bert = BertModel(config, add_pooling_layer=True)  
         self.qa_outputs = nn.Linear(config.hidden_size, config.num_labels)
 
         # Initialize weights and apply final processing
