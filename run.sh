@@ -1,26 +1,20 @@
-GPU=${1:-0}
-EPOCH=${2:-3}
-DATA_DIR=${3:-"./dataset/"}
-MODEL=${4:-"BioModel"}
-OUTPUT_DIR=${5:-"./output"}
-
 python run.py \
     --model_type bert \
     --model_name_or_path models/deberta-v3-base-microbedb-v1 \
     --load_remote_model \
-    --model_class $MODEL\
+    --model_class BioModel\
     --do_train \
-    --data_dir $DATA_DIR \
+    --data_dir ./dataset/ \
     --train_file train-set.json \
     --per_gpu_train_batch_size 4 \
     --learning_rate 8e-6 \
-    --num_train_epochs $EPOCH \
+    --num_train_epochs 3 \
     --max_seq_length 384 \
     --seed 0 \
-    --output_dir $OUTPUT_DIR \
+    --output_dir ./output \
     --overwrite_output_dir \
     --single_gpu \
-    --gpu $GPU \
+    --gpu 0 \
     --logging_every_epoch \
     --save_every_epoch \
     --do_eval \
